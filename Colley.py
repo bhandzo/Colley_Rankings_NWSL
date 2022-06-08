@@ -16,26 +16,19 @@ b = np.zeros(num_of_teams)
 for index, row in data.iterrows():
     t1 = row[2]
     t2 = row[5]
-    
-    if row[0] <= 6: #For first round matches
-        weight = 0.9
-    elif row[0] > 6 and row[0] <=12: #For second round matches
-        weight = 1.0
-    else:
-        weight = 1.1 #For third round matches
-    
-    c[(t1-1)][(t1-1)] = c[(t1-1)][(t1-1)] + 1 * weight # Updating diagonal element
-    c[(t2-1)][(t2-1)] = c[(t2-1)][(t2-1)] + 1 * weight # Updating diagonal element
-    c[(t1-1)][(t2-1)] = c[(t1-1)][(t2-1)] - 1 * weight # Updating off - diagonal element
-    c[(t2-1)][(t1-1)] = c[(t2-1)][(t1-1)] - 1 * weight # Updating off - diagonal element
+        
+    c[(t1-1)][(t1-1)] = c[(t1-1)][(t1-1)] + 1 # Updating diagonal element
+    c[(t2-1)][(t2-1)] = c[(t2-1)][(t2-1)] + 1 # Updating diagonal element
+    c[(t1-1)][(t2-1)] = c[(t1-1)][(t2-1)] - 1 # Updating off - diagonal element
+    c[(t2-1)][(t1-1)] = c[(t2-1)][(t1-1)] - 1 # Updating off - diagonal element
     
     # Updating vecotr b based on result of each game
     if row[4] > row[7]:
-        b[(t1-1)] += 1 * weight
-        b[(t2-1)] -= 1 * weight
+        b[(t1-1)] += 1
+        b[(t2-1)] -= 1
     elif row[4] < row[7]:
-        b[(t1-1)] -= 1 * weight
-        b[(t2-1)] += 1 * weight
+        b[(t1-1)] -= 1
+        b[(t2-1)] += 1
 
 # Adding 2 to diagonal elements (total number of games) of Colley matrix
 diag = c.diagonal() + 2
