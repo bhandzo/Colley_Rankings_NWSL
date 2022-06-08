@@ -1,4 +1,12 @@
-1, Manchester_United
-2, Chelsea
-3, Arsenal
-4, Liverpool
+1,Angel_City
+2,SD
+3,Houston
+4,Chicago
+5,Portland
+6,Gotham
+7,OL
+8,Louisville
+9,Orlando
+10,Washington
+11,KC
+12,NC

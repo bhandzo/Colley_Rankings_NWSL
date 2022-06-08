@@ -43,6 +43,6 @@ for i, value in enumerate(b):
 r = np.linalg.solve(c, b)
 
 # Displaying ranking for top 4 teams
-top_teams = r.argsort()[-4:][::-1]
+top_teams = r.argsort()[-12:][::-1]
 for i in top_teams:
     print (str(r[i]) + " " + str(teams.iloc[i][1]))
