@@ -2,11 +2,11 @@
 import numpy as np
 import pandas as pd
 
-# Reading 'teams' and 'scores' data
+# Reading 'teams' and 'results' data
 teams = pd.read_csv('teams.txt', header = None)
 num_of_teams = len(teams.index)
 
-data = pd.read_csv('scores.txt', header = None)
+data = pd.read_csv('results.txt', header = None)
 
 # Initializing Colley Matrix 'c'and vector 'b'
 c = np.zeros([num_of_teams, num_of_teams])
@@ -41,6 +41,9 @@ for i, value in enumerate(b):
 
 # Solving N variable linear equation
 r = np.linalg.solve(c, b)
+
+print(c)
+print(b)
 
 # Displaying ranking for top 4 teams
 top_teams = r.argsort()[-12:][::-1]
